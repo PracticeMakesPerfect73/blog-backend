@@ -11,7 +11,6 @@ urlpatterns = [
     path('post/<slug:slug>', views.post_detail, name='post_detail'),
     path('contact/', views.contact, name='contact'),
     path('', views.index, name='index'),
-    path('index.html', views.index, name='index_html'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
