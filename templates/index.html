@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends "blog-base.html" %}
+{% load static %}
 
 {% block title %}Sensive Blog - Home{% endblock %}
 
@@ -48,7 +49,8 @@
                 <div class="single-recent-blog-post">
                   <div class="thumb">
                     <a href="{% url 'post_detail' slug=post.slug %}">
-                      <img class="img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
+                      {% static 'img/banner/blog.png' as post_image %}
+                      <img class="img-fluid" src="{{ post.image_url| default:post_image}}" alt="{{ post.title }}">
                     </a>
                     <ul class="thumb-info" style = "max-width:550px;">
                       <li><i class="ti-user"></i> {{ post.author }}</li>
